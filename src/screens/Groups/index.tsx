@@ -7,14 +7,23 @@ import { GroupCard } from "@components/GroupCard";
 import { FlatList } from "react-native";
 import { ListEmpty } from "@components/ListEmpty";
 import { Button } from "@components/Button";
+import {useNavigation} from "@react-navigation/native"
 
 interface GroupsI {
     title: string;
 }
+
 export function Groups(){
+
     const [groups, setGroups] = useState<GroupsI[]>([{
         title: "Turma Teste"
     }])
+
+    const navigation = useNavigation()
+
+    function handleNewGroup(){
+        navigation.navigate("new")
+    }
 
     return (
         <GroupContainer>
@@ -35,7 +44,11 @@ export function Groups(){
                 )}
                 contentContainerStyle={groups.length === 0 && {flex: 1}}
             />
-            <Button title="Criar nova turma" variant="PRIMARY"/>
+            <Button 
+                title="Criar nova turma" 
+                variant="PRIMARY"
+                onPress={handleNewGroup}
+            />
         </GroupContainer>
     )
 }

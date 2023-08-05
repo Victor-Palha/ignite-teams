@@ -21,6 +21,6 @@ export const IconUsers = styled(UsersThree).attrs(
 `
 
 export const Title = styled.Text`
-    font-size: ${({theme}) => theme.FONT_SIZE.LG};
+    font-size: ${({theme}) => theme.FONT_SIZE.LG}px;
     color: ${({theme}) => theme.COLORS.GRAY_100};
 `
