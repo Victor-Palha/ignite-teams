@@ -1,11 +1,13 @@
 import React from "react";
 import { CardContainer, IconUsers, Title } from "./styles";
-interface GroupCardProps {
+import { TouchableOpacityProps } from "react-native";
+
+interface GroupCardProps extends TouchableOpacityProps{
     title: string;
 }
-export function GroupCard({title}: GroupCardProps){
+export function GroupCard({title, ...rest}: GroupCardProps){
     return (
-        <CardContainer>
+        <CardContainer {...rest}>
             <IconUsers />
             <Title>{title}</Title>
         </CardContainer>
